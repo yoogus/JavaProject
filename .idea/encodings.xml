@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/com/company/Animals.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/com/company/Cat.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/com/company/Cats.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/com/company/Dogs.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/com/company/Main.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/com/company/Mains.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/com/company/Plate.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/com/company/User.java" charset="windows-1251" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>
