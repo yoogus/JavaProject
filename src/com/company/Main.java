@@ -19,6 +19,8 @@ import java.util.Objects;
 import java.util.regex.Pattern;
 
 public class Main extends JFrame {
+    boolean isRussina = true;
+
     public Main() {
 
         setTitle("Расчет бюджета");
@@ -47,7 +49,7 @@ public class Main extends JFrame {
         add(field3);
 
         JLabel label3 = new JLabel();
-        label3.setBounds(10, 260, 150,32);
+        label3.setBounds(10, 260, 150, 32);
         label3.setText("Введите кол-во товара");
         label3.setForeground(Color.WHITE);
         add(label3);
@@ -57,7 +59,7 @@ public class Main extends JFrame {
         add(field2);
 
         JLabel label2 = new JLabel();
-        label2.setBounds(10, 300, 150,32);
+        label2.setBounds(10, 300, 150, 32);
         label2.setText("Введите цену товара");
         label2.setForeground(Color.WHITE);
         add(label2);
@@ -78,11 +80,19 @@ public class Main extends JFrame {
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                button1.setText("Успешно!");
+                if (isRussina) {
+                    button1.setText("Успешно!");
+                } else {
+                    button1.setText("Successfully!");
+                }
 
-                if (numericField.getText().isEmpty() || numericField2.getText().isEmpty() || numericField3.getText().isEmpty()){
-                    JOptionPane.showMessageDialog(Main.this, "Вы не заполнили поля");
-                } else{
+                if (numericField.getText().isEmpty() || numericField2.getText().isEmpty() || numericField3.getText().isEmpty()) {
+                    if (isRussina) {
+                        JOptionPane.showMessageDialog(Main.this, "Вы не заполнили поля");
+                    } else {
+                        JOptionPane.showMessageDialog(Main.this, "You haven't filled in the fields");
+                    }
+                } else {
                     int a = Integer.parseInt(numericField.getText());
                     int b = Integer.parseInt(numericField2.getText());
                     int c = Integer.parseInt(numericField3.getText());
@@ -90,17 +100,63 @@ public class Main extends JFrame {
                     int sum = a - (b * c);
                     int zatr = b * c;
 
-
-                    if (a >= zatr){
-                        JOptionPane.showMessageDialog(Main.this, "После покупки у вас останется: " + sum + "\nОбщая сумма покупки: " + zatr);
+                    if (a >= zatr) {
+                        if (isRussina)
+                            JOptionPane.showMessageDialog(Main.this, "После покупки у вас останется: " + sum + "\nОбщая сумма покупки: " + zatr);
+                        else
+                            JOptionPane.showMessageDialog(Main.this, "After the purchase, you will have: " + sum + "\nTotal purchase amount: " + zatr);
                     } else {
-                        JOptionPane.showMessageDialog(Main.this, "У вас не хватает денег!" + "\nНа покупку вам нужно: " + zatr);
+                        if (isRussina)
+                            JOptionPane.showMessageDialog(Main.this, "У вас нехватает денег!" + "\nДля покупки нужно: " + zatr);
+                         else
+                            JOptionPane.showMessageDialog(Main.this, "You don't have enough money!" + "\nTo buy you need: " + zatr);
                     }
                 }
-
-
             }
         });
+
+        JButton button2 = new JButton("ENG");
+        button2.setBounds(10, 20, 70, 32);
+        add(button2);
+        button2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                isRussina = false;
+                label.setText("Enter your budget");
+                label2.setText("Enter quantity");
+                label3.setText("Enter the price of the item");
+                button1.setText("Enter");
+                numericField2.setBounds(170, 300, 160, 32);
+                field2.setBounds(170, 300, 160, 32);
+                numericField3.setBounds(170, 260, 160, 32);
+                field3.setBounds(170, 260, 160, 32);
+                numericField.setBounds(170, 220, 160, 32);
+                field1.setBounds(170, 220, 160, 32);
+                button1.setBounds(185, 340, 130, 32);
+            }
+        });
+
+        JButton buttonRus = new JButton("RUS");
+        buttonRus.setBounds(90, 20, 70, 32);
+        add(buttonRus);
+        buttonRus.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                isRussina = true;
+                label.setText("Введите ваш бюджет");
+                label2.setText("Введите цену товара");
+                label3.setText("Введите кол-во товара");
+                button1.setText("Применить");
+                numericField2.setBounds(150, 300, 160, 32);
+                field2.setBounds(150, 300, 160, 32);
+                numericField3.setBounds(150, 260, 160, 32);
+                field3.setBounds(150, 260, 160, 32);
+                numericField.setBounds(150, 220, 160, 32);
+                field1.setBounds(150, 220, 160, 32);
+                button1.setBounds(165, 340, 130, 32);
+            }
+        });
+
         setVisible(true);
     }
 

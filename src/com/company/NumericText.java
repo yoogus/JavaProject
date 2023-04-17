@@ -19,7 +19,7 @@ public class NumericText extends JTextField {
             char[] c = str.toCharArray();
             for (int i = 0; i < c.length; i++) {
                 if (Character.isDigit(c[i])) {
-                    super.insertString(offs, new String(new char[] {c[i]}), a);
+                    super.insertString(offs, new String(new char[]{c[i]}), a);
                     offs++;
                 }
             }
